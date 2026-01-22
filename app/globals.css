@@ -505,7 +505,7 @@ nav.nav-scrolled .burger-line {
 /* Carousel */
 .carousel-container {
   position: absolute;
-  bottom: 3rem;
+  bottom: 10rem !important;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
