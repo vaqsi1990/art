@@ -1,5 +1,6 @@
 import Copy from "@/components/Copy";
 import Hero from "@/components/Hero";
+import Featured from "@/components/Featured";
 import Popular from "@/components/Popular";
 import Categories from "@/components/Categories";
 
@@ -10,6 +11,9 @@ export default function Page() {
         <div className="">
           <Copy delay={0.3}>
            <Hero />
+          </Copy>
+          <Copy delay={0.4}>
+            <Featured />
           </Copy>
           <Copy delay={0.5}>
             <Categories />
