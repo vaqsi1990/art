@@ -23,9 +23,9 @@ const Popular = () => {
                 </div>
               </div>
 
-              <div className="art-info">
-                <h3>{artwork.title}</h3>
-                <p>{artwork.price} ₾</p>
+              <div className="art-info text-black">
+                <h3 className="text-black">{artwork.title}</h3>
+                <p className="text-black">{artwork.price} ₾</p>
               </div>
             </div>
           ))}

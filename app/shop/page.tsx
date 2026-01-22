@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { artworks } from '@/data/artworks'
@@ -8,7 +8,7 @@ import SearchFilter from '@/components/SearchFilter'
 
 const ITEMS_PER_PAGE = 9
 
-export default function ShopPage() {
+function ShopContent() {
   const searchParams = useSearchParams()
   const [currentPage, setCurrentPage] = useState(1)
   const [filteredArtworks, setFilteredArtworks] = useState(artworks)
@@ -116,5 +116,20 @@ export default function ShopPage() {
         </div>
       </div>
     </>
+  )
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={
+      <div className="shop-section">
+        <div className="shop-container">
+          <h1 className="shop-title text-white">Shop</h1>
+          <div className="text-white">Loading...</div>
+        </div>
+      </div>
+    }>
+      <ShopContent />
+    </Suspense>
   )
 }
