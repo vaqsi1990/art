@@ -1,6 +1,7 @@
 import Copy from "@/components/Copy";
 import Hero from "@/components/Hero";
 import Popular from "@/components/Popular";
+import Categories from "@/components/Categories";
 
 export default function Page() {
   return (
@@ -11,6 +12,9 @@ export default function Page() {
            <Hero />
           </Copy>
           <Copy delay={0.5}>
+            <Categories />
+          </Copy>
+          <Copy delay={0.7}>
             <Popular />
           </Copy>
         </div>

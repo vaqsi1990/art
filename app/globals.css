@@ -628,7 +628,7 @@ nav.nav-scrolled .burger-line {
   position: relative;
   width: 100vw;
   min-height: 100svh;
-  padding: 8rem 2rem;
+ 
   background: #fff2e2;
   box-sizing: border-box;
 }
@@ -708,6 +708,187 @@ nav.nav-scrolled .burger-line {
 .art-info p {
   font-weight: 600;
   margin: 0;
+}
+
+/* Categories Section */
+.categories-section {
+  position: relative;
+  width: 100vw;
+  min-height: 100svh;
+  padding: 8rem 0rem;
+  background: #fff2e2;
+  box-sizing: border-box;
+}
+
+.categories-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.categories-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+}
+
+.categories-subtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--foreground);
+  opacity: 0.7;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.categories-grid.filtered {
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)) !important;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.category-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, all 0.3s ease;
+  will-change: transform;
+}
+
+.category-card.large {
+  border-radius: 12px;
+}
+
+.category-card.large .category-image-wrapper {
+  aspect-ratio: 16 / 10;
+}
+
+.category-card.large .category-name {
+  font-size: 2.25rem;
+}
+
+.category-card.large .category-count {
+  font-size: 1.3rem;
+}
+
+.category-card.large .category-info {
+  padding: 3rem;
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+}
+
+.category-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #3a3a3a;
+}
+
+.category-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover .category-image-wrapper img {
+  transform: scale(1.1);
+}
+
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+  transition: background 0.3s ease;
+}
+
+.category-card:hover .category-overlay {
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.category-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  color: white;
+  z-index: 2;
+}
+
+.category-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: white;
+}
+
+.category-count {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.9;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .categories-title {
+    font-size: 2rem;
+  }
+
+  .categories-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .categories-grid.filtered {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .category-card.large .category-name {
+    font-size: 1.75rem;
+  }
+
+  .category-card.large .category-count {
+    font-size: 1.1rem;
+  }
+
+  .category-card.large .category-info {
+    padding: 2rem;
+  }
+
+  .category-info {
+    padding: 1.5rem;
+  }
+
+  .category-name {
+    font-size: 1.25rem;
+  }
 }
 
 /* Product Details Section */
@@ -1152,6 +1333,48 @@ nav.nav-scrolled .burger-line {
 .search-filter-container {
   margin-bottom: 3rem;
   width: 100%;
+}
+
+/* Category Buttons */
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.category-button {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid black !important;
+  border-radius: 4px;
+  color: black !important;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: "Barlow Condensed", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.category-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+
+
+@media (max-width: 768px) {
+  .category-buttons {
+    gap: 0.5rem;
+  }
+
+  .category-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
 }
 
 .search-filter-header {

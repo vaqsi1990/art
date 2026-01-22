@@ -1,15 +1,18 @@
 "use client";
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { artworks } from '@/data/artworks'
 import SearchFilter from '@/components/SearchFilter'
 
 const ITEMS_PER_PAGE = 9
 
 export default function ShopPage() {
+  const searchParams = useSearchParams()
   const [currentPage, setCurrentPage] = useState(1)
   const [filteredArtworks, setFilteredArtworks] = useState(artworks)
+  const initialMedium = searchParams.get('medium') || undefined
 
   const totalPages = Math.ceil(filteredArtworks.length / ITEMS_PER_PAGE)
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
@@ -37,6 +40,7 @@ export default function ShopPage() {
           <SearchFilter 
             artworks={artworks} 
             onFilterChange={setFilteredArtworks}
+            initialMedium={initialMedium}
           />
 
           {filteredArtworks.length === 0 ? (

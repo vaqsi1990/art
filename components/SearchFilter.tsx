@@ -6,19 +6,27 @@ import { Artwork } from '@/data/artworks'
 interface SearchFilterProps {
   artworks: Artwork[]
   onFilterChange: (filtered: Artwork[]) => void
+  initialMedium?: string
 }
 
 type SortOption = 'default' | 'price-asc' | 'price-desc' | 'title-asc' | 'title-desc' | 'year-desc'
 
-export default function SearchFilter({ artworks, onFilterChange }: SearchFilterProps) {
+export default function SearchFilter({ artworks, onFilterChange, initialMedium }: SearchFilterProps) {
   const [searchQuery, setSearchQuery] = useState('')
-  const [selectedMedium, setSelectedMedium] = useState<string>('all')
+  const [selectedMedium, setSelectedMedium] = useState<string>(initialMedium || 'all')
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 2000])
   const [sortBy, setSortBy] = useState<SortOption>('default')
   const [isFilterOpen, setIsFilterOpen] = useState(false)
 
+  // Update selectedMedium when initialMedium changes (from URL)
+  React.useEffect(() => {
+    if (initialMedium) {
+      setSelectedMedium(initialMedium)
+    }
+  }, [initialMedium])
+
   // Get unique mediums
-  const mediums = ['all', ...Array.from(new Set(artworks.map(a => a.medium).filter(Boolean)))]
+  const mediums = ['all', 'featured', ...Array.from(new Set(artworks.map(a => a.medium).filter(Boolean)))]
 
   // Get price range from artworks
   const maxPrice = Math.max(...artworks.map(a => a.price), 0)
@@ -38,8 +46,13 @@ export default function SearchFilter({ artworks, onFilterChange }: SearchFilterP
     }
 
     // Medium filter
-    if (selectedMedium !== 'all') {
+    if (selectedMedium !== 'all' && selectedMedium !== 'featured') {
       filtered = filtered.filter(artwork => artwork.medium === selectedMedium)
+    }
+
+    // Featured filter (price > 1000)
+    if (selectedMedium === 'featured') {
+      filtered = filtered.filter(artwork => artwork.price > 1000)
     }
 
     // Price range filter
@@ -152,7 +165,7 @@ export default function SearchFilter({ artworks, onFilterChange }: SearchFilterP
             >
               {mediums.map(medium => (
                 <option key={medium} value={medium}>
-                  {medium === 'all' ? 'All Mediums' : medium}
+                  {medium === 'all' ? 'All Mediums' : medium === 'featured' ? 'Featured Works' : medium}
                 </option>
               ))}
             </select>
