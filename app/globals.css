@@ -635,9 +635,10 @@ nav.nav-scrolled .burger-line {
 
 .popular-container {
   max-width: 1400px;
+  padding: 0 2rem !important;
   margin: 0 auto;
   width: 100%;
-  margin-bottom: 14rem !important;
+  margin-bottom: 4rem !important;
 }
 
 .popular-grid {
@@ -848,23 +849,25 @@ nav.nav-scrolled .burger-line {
 
 .categories-container {
   max-width: 1400px;
+  padding: 0 2rem !important;
   margin: 0 auto;
   width: 100%;
 }
 
 .categories-title {
-
+  color: black !important;
   font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
-  color: var(--foreground);
+ 
+  
 }
 
 .categories-subtitle {
   font-size: 1.2rem;
   text-align: center;
   margin-bottom: 4rem;
-  color: var(--foreground);
+  color: black !important;
   opacity: 0.7;
 }
 
@@ -1369,6 +1372,28 @@ nav.nav-scrolled .burger-line {
 }
 
 @media (max-width: 768px) {
+  .footer-logo-section {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .footer-links-section {
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-heading {
+    text-align: center;
+  }
+
+  .footer-links {
+    align-items: center;
+  }
+
+  .footer-contact-section {
+    text-align: center;
+  }
+
   .footer {
     padding: 3rem 1.5rem;
   }

@@ -6,7 +6,7 @@ const Popular = () => {
 
   return (
     <div className="popular-section">
-      <div className="popular-container">
+      <div className="popular-container p-4">
       <h2 className="categories-title md:text-[30px] text-[20px]">Popular Collections</h2>
         <div className="popular-grid">
           {artworks.map((artwork, index) => (

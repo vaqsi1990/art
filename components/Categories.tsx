@@ -109,7 +109,7 @@ const Categories = () => {
   return (
     <div ref={sectionRef} className="categories-section">
       <div className="categories-container">
-        <h2 className="categories-title md:text-[30px] text-[20px]">Browse by Collection</h2>
+        <h2 className="categories-title text-black md:text-[30px] text-[20px]">Browse by Collection</h2>
         
         
         {/* Category Buttons */}
@@ -145,9 +145,9 @@ const Categories = () => {
                     </Link>
                   </div>
                 </div>
-                <div className="art-info">
-                  <h3>{artwork.title}</h3>
-                  <p>{artwork.price} ₾</p>
+                <div className="art-info text-black">
+                  <h3 className="text-black">{artwork.title}</h3>
+                  <p className="text-black">{artwork.price} ₾</p>
                 </div>
               </div>
             )

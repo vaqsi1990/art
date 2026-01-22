@@ -9,18 +9,7 @@ const Footer = () => {
         <div className="footer-logo-section">
           <div className="footer-logo">
        
-            {/* <div className="logo-wrapper">
-              <span className="logo-text brush">BRUSH</span>
-              <svg className="brush-stroke" viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M0 20 Q50 8 100 18 T200 20"
-                  stroke="#e74c3c"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-              </svg>
-            </div> */}
+        
             <span className="logo-text ">ART</span></div>
         </div>
 
