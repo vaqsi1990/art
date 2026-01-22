@@ -109,7 +109,7 @@ const Categories = () => {
   return (
     <div ref={sectionRef} className="categories-section">
       <div className="categories-container">
-        <h2 className="categories-title">Browse by Collection</h2>
+        <h2 className="categories-title md:text-[30px] text-[20px]">Browse by Collection</h2>
         
         
         {/* Category Buttons */}

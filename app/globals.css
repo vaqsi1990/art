@@ -627,7 +627,7 @@ nav.nav-scrolled .burger-line {
 .popular-section {
   position: relative;
   width: 100vw;
-  min-height: 100svh;
+  
  
   background: #fff2e2;
   box-sizing: border-box;
@@ -637,6 +637,7 @@ nav.nav-scrolled .burger-line {
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+  margin-bottom: 14rem !important;
 }
 
 .popular-grid {
@@ -852,7 +853,7 @@ nav.nav-scrolled .burger-line {
 }
 
 .categories-title {
-  font-size: 3rem;
+
   font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
@@ -964,9 +965,7 @@ nav.nav-scrolled .burger-line {
 }
 
 @media (max-width: 768px) {
-  .categories-title {
-    font-size: 2rem;
-  }
+
 
   .categories-subtitle {
     font-size: 1rem;
