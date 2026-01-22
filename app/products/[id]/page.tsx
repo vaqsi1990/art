@@ -170,7 +170,7 @@ export default function ProductPage({ params }: PageProps) {
               )}
             </div>
 
-            <button className="purchase-button text-white">
+            <button className="hero-button md:text-[20px] text-[18px] md:w-[50%] text-white">
               Purchase Artwork
             </button>
           </div>

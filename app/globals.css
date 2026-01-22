@@ -401,7 +401,7 @@ nav.nav-scrolled .burger-line {
   border: 1px solid white;
   color: white;
   padding: 1rem 2.5rem;
-  font-size: 0.9rem;
+  
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
@@ -508,7 +508,7 @@ nav.nav-scrolled .burger-line {
 /* Carousel */
 .carousel-container {
   position: absolute;
-  bottom: 10rem !important;
+  bottom: 7rem !important;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
@@ -842,7 +842,7 @@ nav.nav-scrolled .burger-line {
   position: relative;
   width: 100vw;
   min-height: 100svh;
-  padding: 8rem 0rem;
+  padding: 4rem 0rem;
   background: #fff2e2;
   box-sizing: border-box;
 }
@@ -1398,7 +1398,10 @@ nav.nav-scrolled .burger-line {
     padding: 3rem 1.5rem;
   }
   .popular-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .popular-grid.filtered {
+    grid-template-columns: repeat(2, 1fr);
   }
   .categories-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

@@ -176,7 +176,7 @@ export default function Hero() {
           
           
           <Link href="/shop">
-            <button ref={buttonRef} className="hero-button z-10">
+            <button ref={buttonRef} className="hero-button md:text-[20px] text-[18px] z-10">
              ჩვენი კოლექცია 
             </button>
           </Link>

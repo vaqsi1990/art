@@ -49,9 +49,7 @@ function ShopContent() {
             </div>
           ) : (
             <>
-              <div className="results-count text-white">
-                Showing {currentArtworks.length} of {filteredArtworks.length} artworks
-              </div>
+            
               
               <div className="shop-grid">
                 {currentArtworks.map((artwork) => (
