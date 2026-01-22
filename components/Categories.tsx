@@ -129,7 +129,7 @@ const Categories = () => {
           })}
         </div>
         
-        <div className="popular-grid">
+        <div className="popular-grid filtered">
           {filteredArtworks.map((artwork, index) => {
             return (
               <div key={artwork.id} className="popular-item">
