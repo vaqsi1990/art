@@ -641,7 +641,7 @@ nav.nav-scrolled .burger-line {
 
 .popular-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
   width: 100%;
 }
@@ -651,6 +651,9 @@ nav.nav-scrolled .burger-line {
   flex-direction: column;
   gap: 1rem;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  will-change: transform;
 }
 
 /* გარე მუქი ჩარჩო */
@@ -658,12 +661,14 @@ nav.nav-scrolled .burger-line {
   background: #3a3a3a;
   padding: 14px;
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 /* თეთრი პასპარტუ */
 .frame-inner {
   background: #ffffff;
   padding: 20px;
+  overflow: hidden;
 }
 
 /* თვითონ სურათი */
@@ -672,11 +677,21 @@ nav.nav-scrolled .burger-line {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
+  will-change: transform, opacity;
+  transition: transform 0.4s ease;
+}
+
+.popular-item:hover .frame-inner img {
+  transform: scale(1.05);
 }
 
 /* hover ეფექტი */
 .popular-item:hover .frame-outer {
   transform: scale(1.02);
+}
+
+.art-info {
+  will-change: transform;
 }
 
 
@@ -693,6 +708,177 @@ nav.nav-scrolled .burger-line {
 .art-info p {
   font-weight: 600;
   margin: 0;
+}
+
+/* Product Details Section */
+.product-details-section {
+  position: relative;
+  width: 100vw;
+  min-height: 100svh;
+  padding: 8rem 2rem;
+  background: transparent;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+.product-details-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  color: white !important;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 3rem;
+  color: white !important;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.back-link:hover {
+  opacity: 0.7;
+}
+
+.product-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.product-image-wrapper {
+  position: sticky;
+  top: 8rem;
+}
+
+.product-image-wrapper .frame-outer {
+  background: #3a3a3a;
+  padding: 14px;
+}
+
+.product-image-wrapper .frame-inner {
+  background: #ffffff;
+  padding: 20px;
+}
+
+.product-image-wrapper .frame-inner img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.product-title {
+  font-size: 2.5rem;
+  font-weight: 700; 
+  color: white !important;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.price-amount {
+  color: white;
+}
+
+.product-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: white;
+  opacity: 0.9;
+}
+
+.product-description p {
+  margin: 0;
+}
+
+.product-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white !important;
+  font-size: 1rem;
+}
+
+.detail-label {
+  font-weight: 600;
+  opacity: 0.7;
+  color: white !important;
+}
+
+.detail-value {
+  font-weight: 400;
+  color: white !important;
+}
+
+.purchase-button {
+  padding: 1rem 2rem;
+  background: var(--foreground);
+  color: white !important;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: "Barlow Condensed", sans-serif;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.purchase-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.purchase-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .product-details-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .product-image-wrapper {
+    position: relative;
+    top: 0;
+  }
+
+  .product-title {
+    font-size: 2rem;
+  }
+
+  .product-price {
+    font-size: 1.25rem;
+  }
+
+  .purchase-button {
+    max-width: 100%;
+  }
 }
 
 /* Page Transition Styles */
@@ -893,7 +1079,9 @@ nav.nav-scrolled .burger-line {
   .footer {
     padding: 3rem 1.5rem;
   }
-
+  .popular-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
   .logo-text {
     font-size: 1.5rem;
   }
@@ -901,4 +1089,31 @@ nav.nav-scrolled .burger-line {
   .footer-heading {
     font-size: 1.1rem;
   }
+}
+
+.detail-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/sistine-chapele.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.detail-bg::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3) !important;
+  z-index: -1;
 }

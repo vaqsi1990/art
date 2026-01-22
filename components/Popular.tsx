@@ -1,28 +1,8 @@
 import React from 'react'
-
+import { artworks } from '@/data/artworks'
+import Link from 'next/link'
 const Popular = () => {
-  const artworks = [
-    {
-      image: "/img_01.jpg",
-      title: "Color of Folks",
-      price: 850
-    },
-    {
-      image: "/img_02.jpg",
-      title: "Abstract Dreams",
-      price: 1200
-    },
-    {
-      image: "/img_03.jpg",
-      title: "Urban Symphony",
-      price: 950
-    },
-    {
-      image: "/img_04.jpg",
-      title: "Nature's Whisper",
-      price: 1100
-    }
-  ];
+
 
   return (
     <div className="popular-section">
@@ -32,11 +12,13 @@ const Popular = () => {
             <div key={index} className="popular-item">
               <div className="frame-outer">
                 <div className="frame-inner">
-                  <img
-                    src={artwork.image}
-                    alt={artwork.title}
-                    loading="eager"
-                  />
+                  <Link href={`/products/${artwork.id}`}>
+                    <img
+                      src={artwork.image}
+                      alt={artwork.title}
+                      loading="eager"
+                    />
+                  </Link>
                 </div>
               </div>
 

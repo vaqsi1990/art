@@ -101,6 +101,7 @@ const Nav = () => {
           <Link className="text-[20px]" href="/about">About</Link>
           <Link className="text-[20px]" href="/contact">Contact</Link>
           <Link className="text-[20px]" href="/shop">Shop</Link>
+          <Link className="text-[20px]" href="/products">Cart</Link>
         </div>
 
         <button 
@@ -133,6 +134,7 @@ const Nav = () => {
           <Link href="/about" onClick={closeMenu}>About</Link>
           <Link href="/contact" onClick={closeMenu}>Contact</Link>
           <Link href="/shop" onClick={closeMenu}>Shop</Link>
+          <Link href="/cart" onClick={closeMenu}>Cart</Link>
         </div>
       </div>
     </>
