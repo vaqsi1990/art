@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Dancing+Script:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -42,6 +42,9 @@ body {
   font-family: "Barlow Condensed", sans-serif;
   overflow-x: hidden;
   width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -743,4 +746,154 @@ nav.nav-scrolled .burger-line {
   position: relative;
   display: inline-block;
   will-change: transform;
+}
+
+/* Footer Styles */
+.footer {
+  width: 100vw;
+  background: #fae9d3;
+  padding: 4rem 2rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Logo Section */
+.footer-logo-section {
+  display: flex;
+  align-items: flex-start;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.logo-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-text {
+  font-family: "Dancing Script", cursive;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #171717;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  display: inline-block;
+}
+
+.logo-text.brush {
+  position: relative;
+  z-index: 2;
+}
+
+.logo-text.strokes {
+  margin-top: 0.2rem;
+  font-size: 2.5rem;
+}
+
+.brush-stroke {
+  position: absolute;
+  bottom: -8px;
+  left: -10px;
+  width: 180px;
+  height: 25px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Links Section */
+.footer-links-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-heading {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #171717;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1rem;
+  color: #171717;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  position: relative;
+  font-weight: 400;
+}
+
+.footer-link:hover {
+  opacity: 0.6;
+}
+
+/* Contact Section */
+.footer-contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: right;
+}
+
+.footer-contact {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.95rem;
+  color: #171717;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footer-contact-section {
+    text-align: left;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .footer-heading {
+    font-size: 1.1rem;
+  }
 }
