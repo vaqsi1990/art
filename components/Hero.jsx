@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Link from "next/link";
 import Copy from "./Copy";
 
 export default function Hero() {
@@ -174,9 +175,11 @@ export default function Hero() {
           </Copy>
           
           
-          <button ref={buttonRef} className="hero-button z-10">
-           ჩვენი კოლექცია 
-          </button>
+          <Link href="/shop">
+            <button ref={buttonRef} className="hero-button z-10">
+             ჩვენი კოლექცია 
+            </button>
+          </Link>
           
         </div>
       </div>

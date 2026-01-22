@@ -1117,3 +1117,181 @@ nav.nav-scrolled .burger-line {
   background: rgba(0, 0, 0, 0.3) !important;
   z-index: -1;
 }
+
+/* Text White Utility */
+.text-white {
+  color: white !important;
+}
+
+/* Shop Section */
+.shop-section {
+  position: relative;
+  width: 100vw;
+  min-height: 100svh;
+  padding: 8rem 2rem;
+  background: transparent;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+.shop-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.shop-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 4rem;
+  text-align: center;
+  color: white !important;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 4rem;
+  justify-items: center;
+  align-items: start;
+}
+
+.shop-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+  justify-self: center;
+}
+
+.shop-item .art-info {
+  color: white !important;
+}
+
+.shop-item .art-info h3 {
+  color: white !important;
+}
+
+.shop-item .art-info p {
+  color: white !important;
+}
+
+.shop-item-link {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-decoration: none;
+  color: white;
+  will-change: transform;
+}
+
+.shop-item-link:hover .frame-outer {
+  transform: scale(1.02);
+}
+
+.shop-item-link:hover .frame-inner img {
+  transform: scale(1.05);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.pagination-button {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: "Barlow Condensed", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.pagination-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.pagination-number {
+  min-width: 40px;
+  height: 40px;
+  padding: 0.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: "Barlow Condensed", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-number:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.pagination-number.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .shop-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .shop-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+  }
+
+  .shop-item {
+    max-width: 100%;
+  }
+
+  .pagination {
+    gap: 0.5rem;
+  }
+
+  .pagination-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .pagination-number {
+    min-width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+}
