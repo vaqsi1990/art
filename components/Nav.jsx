@@ -91,15 +91,16 @@ const Nav = () => {
           transition: "background-color 0.3s ease",
         }}
       >
+        <div className="width flex justify-between items-center">
         <div className="nav-logo">
           <Link href="/">Art</Link>
         </div>
 
         <div className="nav-links">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/shop">Shop</Link>
+          <Link className="text-[20px]" href="/">Home</Link>
+          <Link className="text-[20px]" href="/about">About</Link>
+          <Link className="text-[20px]" href="/contact">Contact</Link>
+          <Link className="text-[20px]" href="/shop">Shop</Link>
         </div>
 
         <button 
@@ -111,6 +112,7 @@ const Nav = () => {
           <span className={`burger-line ${isMenuOpen ? 'open' : ''}`}></span>
           <span className={`burger-line ${isMenuOpen ? 'open' : ''}`}></span>
         </button>
+        </div>
       </nav>
 
       {/* Mobile Menu Overlay */}

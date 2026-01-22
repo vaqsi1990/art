@@ -1,14 +1,15 @@
 import React from 'react';
 import Logo from './Logo';
-
+import Link from 'next/link';
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-container">
+      <div className="footer-container width">
         {/* Left Section - Logo */}
         <div className="footer-logo-section">
           <div className="footer-logo">
-            <div className="logo-wrapper">
+       
+            {/* <div className="logo-wrapper">
               <span className="logo-text brush">BRUSH</span>
               <svg className="brush-stroke" viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -19,9 +20,8 @@ const Footer = () => {
                   fill="none"
                 />
               </svg>
-            </div>
-            <span className="logo-text strokes">STROKES</span>
-          </div>
+            </div> */}
+            <span className="logo-text ">ART</span></div>
         </div>
 
         {/* Center Section - Quick Links */}
