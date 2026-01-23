@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useRef, use } from 'react'
+import React, { useRef, use, useState } from 'react'
 import Link from 'next/link'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { getArtworkById } from '@/data/artworks'
+import { useCart } from '@/hooks/useCart'
 
 interface PageProps {
   params: Promise<{
@@ -16,6 +17,8 @@ export default function ProductPage({ params }: PageProps) {
   const pageRef = useRef<HTMLDivElement>(null)
   const { id } = use(params)
   const artwork = getArtworkById(id)
+  const { addToCart } = useCart()
+  const [isAdding, setIsAdding] = useState(false)
 
   // Handle not found case
   if (!artwork) {
@@ -170,8 +173,18 @@ export default function ProductPage({ params }: PageProps) {
               )}
             </div>
 
-            <button className="hero-button md:text-[20px] text-[18px] md:w-[50%] text-white">
-              Purchase Artwork
+            <button 
+              onClick={() => {
+                if (artwork) {
+                  setIsAdding(true)
+                  addToCart(artwork)
+                  setTimeout(() => setIsAdding(false), 1000)
+                }
+              }}
+              disabled={isAdding}
+              className="hero-button md:text-[20px] text-[18px] md:w-[50%] text-white"
+            >
+              {isAdding ? 'Added to Cart!' : 'Add to Cart'}
             </button>
           </div>
         </div>

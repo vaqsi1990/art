@@ -101,7 +101,7 @@ const Nav = () => {
           <Link className="text-[20px]" href="/about">About</Link>
           <Link className="text-[20px]" href="/contact">Contact</Link>
           <Link className="text-[20px]" href="/shop">Shop</Link>
-          <Link className="text-[20px]" href="/products">Cart</Link>
+          <Link className="text-[20px]" href="/cart">Cart</Link>
         </div>
 
         <button 
