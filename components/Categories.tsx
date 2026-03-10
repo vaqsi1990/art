@@ -53,7 +53,7 @@ const Categories = () => {
     if (selectedCategory === 'all') {
       return artworks
     } else if (selectedCategory === 'featured') {
-      return artworks.filter(a => a.price > 1000)
+      return artworks.slice(0, 6)
     } else {
       return artworks.filter(a => a.medium === selectedCategory)
     }
@@ -64,7 +64,7 @@ const Categories = () => {
   // Get artwork count per category
   const getCategoryCount = (category: string): number => {
     if (category === 'All Collections') return artworks.length
-    if (category === 'Featured Works') return artworks.filter(a => a.price > 1000).length
+    if (category === 'Featured Works') return Math.min(artworks.length, 6)
     return artworks.filter(a => a.medium === category).length
   }
 
@@ -72,8 +72,7 @@ const Categories = () => {
   const getCategoryImage = (category: string): string => {
     if (category === 'All Collections') return artworks[0]?.image || '/img_01.jpg'
     if (category === 'Featured Works') {
-      const featured = artworks.find(a => a.price > 1000)
-      return featured?.image || artworks[0]?.image || '/img_01.jpg'
+      return artworks[0]?.image || '/img_01.jpg'
     }
     const categoryArtwork = artworks.find(a => a.medium === category)
     return categoryArtwork?.image || artworks[0]?.image || '/img_01.jpg'
@@ -147,7 +146,6 @@ const Categories = () => {
                 </div>
                 <div className="art-info text-black">
                   <h3 className="text-black">{artwork.title}</h3>
-                  <p className="text-black">{artwork.price} ₾</p>
                 </div>
               </div>
             )

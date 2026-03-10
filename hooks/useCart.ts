@@ -15,7 +15,6 @@ interface UseCartReturn {
   removeFromCart: (id: string) => Promise<void>;
   updateQuantity: (id: string, quantity: number) => Promise<void>;
   clearCart: () => Promise<void>;
-  getTotalPrice: () => number;
   getTotalItems: () => number;
   refreshCart: () => Promise<void>;
 }
@@ -130,10 +129,6 @@ export function useCart(): UseCartReturn {
     }
   }, []);
 
-  const getTotalPrice = useCallback(() => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  }, [cart]);
-
   const getTotalItems = useCallback(() => {
     return cart.reduce((total, item) => total + item.quantity, 0);
   }, [cart]);
@@ -146,7 +141,6 @@ export function useCart(): UseCartReturn {
     removeFromCart,
     updateQuantity,
     clearCart,
-    getTotalPrice,
     getTotalItems,
     refreshCart: fetchCart,
   };

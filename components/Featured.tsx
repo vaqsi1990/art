@@ -13,12 +13,8 @@ const Featured = () => {
   const cardLeadRef = useRef<HTMLParagraphElement>(null)
   const cardTextRef = useRef<HTMLDivElement>(null)
   
-  // Get featured artworks (highest priced)
-  const featuredArtworks = artworks
-    .filter(a => a.price > 1000)
-    .slice(0, 3)
-    .concat(artworks.filter(a => a.price <= 1000).slice(0, 1))
-    .slice(0, 3)
+  // Get featured artworks (first few items)
+  const featuredArtworks = artworks.slice(0, 3)
 
   const [activeIndex, setActiveIndex] = useState(0)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)

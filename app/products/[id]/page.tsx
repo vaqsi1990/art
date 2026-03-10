@@ -133,9 +133,7 @@ export default function ProductPage({ params }: PageProps) {
           <div className="product-info">
             <h1 className="product-title">{artwork.title}</h1>
             
-            <div className="product-price text-white">
-              <span className="price-amount">{artwork.price} ₾</span>
-            </div>
+          
 
             {artwork.description && (
               <div className="product-description text-white">

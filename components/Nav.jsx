@@ -97,11 +97,11 @@ const Nav = () => {
         </div>
 
         <div className="nav-links">
-          <Link className="text-[20px]" href="/">Home</Link>
-          <Link className="text-[20px]" href="/about">About</Link>
-          <Link className="text-[20px]" href="/contact">Contact</Link>
-          <Link className="text-[20px]" href="/shop">Shop</Link>
-          <Link className="text-[20px]" href="/cart">Cart</Link>
+          <Link className="text-[20px]" href="/">მთავარი</Link>
+          <Link className="text-[20px]" href="/about">ჩემს შესახებ</Link>
+          <Link className="text-[20px]" href="/contact">კონტაქტი</Link>
+          <Link className="text-[20px]" href="/shop">გალერეა</Link>
+         
         </div>
 
         <button 
@@ -130,11 +130,11 @@ const Nav = () => {
           <span></span>
         </button>
         <div className="mobile-menu-links">
-          <Link href="/" onClick={closeMenu}>Home</Link>
-          <Link href="/about" onClick={closeMenu}>About</Link>
-          <Link href="/contact" onClick={closeMenu}>Contact</Link>
-          <Link href="/shop" onClick={closeMenu}>Shop</Link>
-          <Link href="/cart" onClick={closeMenu}>Cart</Link>
+          <Link href="/" onClick={closeMenu}>მთავარი</Link>
+          <Link href="/about" onClick={closeMenu}>ჩემს შესახებ</Link>
+          <Link href="/contact" onClick={closeMenu}>კონტაქტი</Link>
+          <Link href="/shop" onClick={closeMenu}>გალერეა</Link>
+    
         </div>
       </div>
     </>

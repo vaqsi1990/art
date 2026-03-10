@@ -68,7 +68,7 @@ function ShopContent() {
 
                       <div className="art-info text-white">
                         <h3 className="text-white">{artwork.title}</h3>
-                        <p className="text-white">{artwork.price} ₾</p>
+                     
                       </div>
                     </Link>
                   </div>

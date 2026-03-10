@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useCart } from '@/hooks/useCart';
 
 export default function CartPage() {
-  const { cart, loading, removeFromCart, updateQuantity, clearCart, getTotalPrice } = useCart();
+  const { cart, loading, removeFromCart, updateQuantity, clearCart, getTotalItems } = useCart();
   const [isProcessing, setIsProcessing] = useState(false);
 
   if (loading) {
@@ -109,9 +109,7 @@ export default function CartPage() {
                         </button>
                       </div>
                       
-                      <div className="cart-item-price text-white">
-                        {(item.price * item.quantity).toLocaleString()} ₾
-                      </div>
+                      
                     </div>
                   </div>
 
@@ -131,9 +129,9 @@ export default function CartPage() {
                 <h2 className="cart-summary-title text-white">Order Summary</h2>
                 
                 <div className="cart-summary-row">
-                  <span className="cart-summary-label text-white">Subtotal:</span>
+                  <span className="cart-summary-label text-white">Items in cart:</span>
                   <span className="cart-summary-value text-white">
-                    {getTotalPrice().toLocaleString()} ₾
+                    {getTotalItems()}
                   </span>
                 </div>
                 
@@ -142,15 +140,6 @@ export default function CartPage() {
                   <span className="cart-summary-value text-white">Free</span>
                 </div>
                 
-                <div className="cart-summary-divider"></div>
-                
-                <div className="cart-summary-row cart-summary-total">
-                  <span className="cart-summary-label text-white">Total:</span>
-                  <span className="cart-summary-value text-white">
-                    {getTotalPrice().toLocaleString()} ₾
-                  </span>
-                </div>
-
                 <button
                   onClick={handleCheckout}
                   disabled={isProcessing}
