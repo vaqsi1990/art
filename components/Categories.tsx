@@ -145,7 +145,7 @@ const Categories = () => {
                   </div>
                 </div>
                 <div className="art-info text-black">
-                  <h3 className="text-black">{artwork.title}</h3>
+                  <h3 className="text-black text-[18px]">{artwork.title}</h3>
                 </div>
               </div>
             )

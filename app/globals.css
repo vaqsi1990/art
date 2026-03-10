@@ -659,7 +659,7 @@ nav.nav-scrolled .burger-line {
 }
 
 .popular-grid.filtered .art-info h3 {
-  font-size: 0.85rem;
+  font-size: 18px;
   margin: 0.4rem 0 0.2rem;
 }
 
@@ -711,7 +711,7 @@ nav.nav-scrolled .burger-line {
 }
 
 .art-info h3 {
-  font-size: 1rem;
+  font-size: 18px;
   margin: 0.5rem 0 0.25rem;
 }
 
@@ -752,7 +752,7 @@ nav.nav-scrolled .burger-line {
 }
 
 .categories-grid.filtered .category-art-info h3 {
-  font-size: 0.85rem;
+  font-size: 18px;
   margin: 0.4rem 0 0.2rem;
 }
 
@@ -825,7 +825,7 @@ nav.nav-scrolled .burger-line {
 }
 
 .category-art-info h3 {
-  font-size: 1rem;
+  font-size: 18px;
   margin: 0.5rem 0 0.25rem;
 }
 
@@ -2018,6 +2018,7 @@ nav.nav-scrolled .burger-line {
 
 .shop-item .art-info h3 {
   color: white !important;
+  font-size: 18px;
 }
 
 .shop-item .art-info p {
