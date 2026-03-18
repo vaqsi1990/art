@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { Artwork } from '@/data/artworks'
+import { useTranslations } from 'next-intl'
 
 interface SearchFilterProps {
   artworks: Artwork[]
@@ -12,6 +13,7 @@ interface SearchFilterProps {
 type SortOption = 'default' | 'title-asc' | 'title-desc' | 'year-desc'
 
 export default function SearchFilter({ artworks, onFilterChange, initialMedium }: SearchFilterProps) {
+  const t = useTranslations('filter')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedMedium, setSelectedMedium] = useState<string>(initialMedium || 'all')
   const [sortBy, setSortBy] = useState<SortOption>('default')
@@ -75,7 +77,7 @@ export default function SearchFilter({ artworks, onFilterChange, initialMedium }
         <div className="search-box">
           <input
             type="text"
-            placeholder="Search artworks..."
+            placeholder={t('searchPlaceholder')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="search-input text-white"
@@ -102,7 +104,7 @@ export default function SearchFilter({ artworks, onFilterChange, initialMedium }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
               <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
             </svg>
-            Filters
+            {t('filters')}
           </button>
 
           <select
@@ -110,10 +112,10 @@ export default function SearchFilter({ artworks, onFilterChange, initialMedium }
             onChange={(e) => setSortBy(e.target.value as SortOption)}
             className="sort-select text-white"
           >
-            <option value="default">Sort by: Default</option>
-            <option value="title-asc">Title: A-Z</option>
-            <option value="title-desc">Title: Z-A</option>
-            <option value="year-desc">Year: Newest First</option>
+            <option value="default">{t('sortDefault')}</option>
+            <option value="title-asc">{t('sortTitleAsc')}</option>
+            <option value="title-desc">{t('sortTitleDesc')}</option>
+            <option value="year-desc">{t('sortYearDesc')}</option>
           </select>
         </div>
       </div>
@@ -121,7 +123,7 @@ export default function SearchFilter({ artworks, onFilterChange, initialMedium }
       {isFilterOpen && (
         <div className="filter-panel">
           <div className="filter-group">
-            <label className="filter-label text-white">Medium</label>
+            <label className="filter-label text-white">{t('medium')}</label>
             <select
               value={selectedMedium}
               onChange={(e) => setSelectedMedium(e.target.value)}
@@ -129,7 +131,7 @@ export default function SearchFilter({ artworks, onFilterChange, initialMedium }
             >
               {mediums.map(medium => (
                 <option key={medium} value={medium}>
-                  {medium === 'all' ? 'All Mediums' : medium}
+                  {medium === 'all' ? t('allMediums') : medium}
                 </option>
               ))}
             </select>
@@ -139,7 +141,7 @@ export default function SearchFilter({ artworks, onFilterChange, initialMedium }
             onClick={resetFilters}
             className="reset-filters text-white"
           >
-            Reset Filters
+            {t('reset')}
           </button>
         </div>
       )}

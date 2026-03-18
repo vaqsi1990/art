@@ -6,8 +6,11 @@ import { artworks } from '@/data/artworks'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
 
 const Categories = () => {
+  const t = useTranslations('categories')
+  const locale = useLocale()
   const sectionRef = useRef<HTMLDivElement>(null)
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
 
@@ -16,8 +19,8 @@ const Categories = () => {
   
   // Category buttons data - for filtering
   const categoryButtons = [
-    { name: 'All Collections', value: 'all' },
-    { name: 'Featured', value: 'featured' },
+    { name: t('all'), value: 'all' },
+    { name: t('featured'), value: 'featured' },
     ...categories.map(cat => ({
       name: cat,
       value: cat
@@ -36,11 +39,11 @@ const Categories = () => {
     if (selectedCategory === 'all') {
       return allCategories
     } else if (selectedCategory === 'featured') {
-      return ['Featured Works']
+      return ['__featured__']
     } else {
       // Filter to show only the selected medium category
       return allCategories.filter(cat => {
-        if (cat === 'All Collections' || cat === 'Featured Works') return false
+        if (cat === '__featured__') return false
         return cat === selectedCategory
       })
     }
@@ -63,15 +66,15 @@ const Categories = () => {
 
   // Get artwork count per category
   const getCategoryCount = (category: string): number => {
-    if (category === 'All Collections') return artworks.length
-    if (category === 'Featured Works') return Math.min(artworks.length, 6)
+    if (category === t('all')) return artworks.length
+    if (category === '__featured__') return Math.min(artworks.length, 6)
     return artworks.filter(a => a.medium === category).length
   }
 
   // Get a sample image for each category
   const getCategoryImage = (category: string): string => {
-    if (category === 'All Collections') return artworks[0]?.image || '/img_01.jpg'
-    if (category === 'Featured Works') {
+    if (category === t('all')) return artworks[0]?.image || '/img_01.jpg'
+    if (category === '__featured__') {
       return artworks[0]?.image || '/img_01.jpg'
     }
     const categoryArtwork = artworks.find(a => a.medium === category)
@@ -108,7 +111,7 @@ const Categories = () => {
   return (
     <div ref={sectionRef} className="categories-section">
       <div className="categories-container">
-        <h2 className="categories-title text-black md:text-[30px] text-[20px]">Browse by Collection</h2>
+        <h2 className="categories-title text-black md:text-[30px] text-[20px]">{t('title')}</h2>
         
         
         {/* Category Buttons */}
@@ -134,7 +137,7 @@ const Categories = () => {
               <div key={artwork.id} className="popular-item">
                 <div className="frame-outer">
                   <div className="frame-inner">
-                    <Link href={`/products/${artwork.id}`}>
+                    <Link href={`/${locale}/products/${artwork.id}`}>
                       <img
                         src={artwork.image}
                         alt={artwork.title}

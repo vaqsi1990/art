@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "brand": "Art",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "gallery": "Gallery",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Enjoy works of",
+    "titleAccent": "art",
+    "cta": "Our collection",
+    "carouselAlt": "Artwork {number}"
+  },
+  "featured": {
+    "title": "Featured Works",
+    "cta": "Our collection"
+  },
+  "categories": {
+    "title": "Browse by Collection",
+    "all": "All Collections",
+    "featured": "Featured"
+  },
+  "popular": {
+    "title": "Popular Collections"
+  },
+  "shop": {
+    "title": "Shop",
+    "loading": "Loading...",
+    "noResults": "No artworks found matching your criteria.",
+    "paginationPrev": "← Previous",
+    "paginationNext": "Next →",
+    "ariaPrevPage": "Previous page",
+    "ariaNextPage": "Next page",
+    "ariaGoToPage": "Go to page {page}"
+  },
+  "filter": {
+    "searchPlaceholder": "Search artworks...",
+    "filters": "Filters",
+    "sortDefault": "Sort by: Default",
+    "sortTitleAsc": "Title: A-Z",
+    "sortTitleDesc": "Title: Z-A",
+    "sortYearDesc": "Year: Newest First",
+    "medium": "Medium",
+    "allMediums": "All Mediums",
+    "reset": "Reset Filters"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "loading": "Loading...",
+    "empty": "Your cart is empty.",
+    "continueShopping": "Continue Shopping",
+    "continueShoppingArrow": "Continue Shopping →",
+    "orderSummary": "Order Summary",
+    "itemsInCart": "Items in cart:",
+    "shipping": "Shipping:",
+    "free": "Free",
+    "checkout": "Proceed to Checkout",
+    "processing": "Processing...",
+    "thankYou": "Thank you for your purchase! This is a demo checkout.",
+    "checkoutFailed": "Failed to complete checkout. Please try again.",
+    "decreaseQty": "Decrease quantity",
+    "increaseQty": "Increase quantity",
+    "removeItem": "Remove item"
+  },
+  "product": {
+    "backToGallery": "← Back to Gallery",
+    "notFoundTitle": "Artwork Not Found",
+    "notFoundBody": "The artwork you're looking for doesn't exist.",
+    "returnToGallery": "Return to Gallery",
+    "artist": "Artist:",
+    "year": "Year:",
+    "medium": "Medium:",
+    "dimensions": "Dimensions:",
+    "addToCart": "Add to Cart",
+    "addedToCart": "Added to Cart!"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "history": "History",
+    "artist": "Artist",
+    "search": "Search",
+    "helpCenter": "Help Center"
+  }
+}
+

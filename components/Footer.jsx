@@ -1,7 +1,10 @@
+"use client";
+
 import React from 'react';
-import Logo from './Logo';
-import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
 const Footer = () => {
+  const t = useTranslations('footer');
+  const locale = useLocale();
   return (
     <footer className="footer">
       <div className="footer-container width">
@@ -15,12 +18,12 @@ const Footer = () => {
 
         {/* Center Section - Quick Links */}
         <div className="footer-links-section">
-          <h3 className="footer-heading">Quick Links</h3>
+          <h3 className="footer-heading">{t('quickLinks')}</h3>
           <div className="footer-links">
-            <a href="/archive" className="footer-link">History</a>
-            <a href="/artist" className="footer-link">Artist</a>
-            <a href="/search" className="footer-link">Search</a>
-            <a href="/help" className="footer-link">Help Center</a>
+            <a href={`/${locale}/archive`} className="footer-link">{t('history')}</a>
+            <a href={`/${locale}/artist`} className="footer-link">{t('artist')}</a>
+            <a href={`/${locale}/search`} className="footer-link">{t('search')}</a>
+            <a href={`/${locale}/help`} className="footer-link">{t('helpCenter')}</a>
           </div>
         </div>
 

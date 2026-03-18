@@ -16,11 +16,71 @@ const PageTransition = ({ children }) => {
   const pathLengthRef = useRef(0);
   const revealTimeoutRef = useRef(null);
 
+  const coverPage = useCallback((url) => {
+    if (overlayRef.current) {
+      overlayRef.current.style.pointerEvents = "auto";
+    }
+    if (logoOverlayRef.current) {
+      logoOverlayRef.current.style.pointerEvents = "auto";
+    }
+
+    const tl = gsap.timeline({
+      onComplete: () => router.push(url),
+    });
+
+    tl.to(blocksRef.current, {
+      scaleX: 1,
+      duration: 0.4,
+      stagger: 0.02,
+      ease: "power2.out",
+      transformOrigin: "left",
+    })
+
+      .set(logoOverlayRef.current, { opacity: 1 }, "-=0.2");
+
+    // Safely animate logo path
+    const logoPath = logoRef.current?.querySelector("path");
+    if (logoPath && pathLengthRef.current > 0) {
+      tl.set(
+        logoPath,
+        {
+          strokeDashoffset: pathLengthRef.current,
+          fill: "transparent",
+        },
+        "-=0.25"
+      )
+        .to(
+          logoPath,
+          {
+            strokeDashoffset: 0,
+            duration: 2,
+            ease: "power2.inOut",
+          },
+          "-=0.5"
+        )
+        .to(
+          logoPath,
+          {
+            fill: "#e3e4d8",
+            duration: 1,
+            ease: "power2.out",
+          },
+          "-=0.5"
+        );
+    }
+
+    tl.to(logoOverlayRef.current, {
+      opacity: 0,
+      duration: 0.25,
+      ease: "power2.out",
+    });
+  }, [router]);
+
   const handleRouteChange = useCallback((url) => {
     if (isTransitioning.current) return;
     isTransitioning.current = true;
     coverPage(url);
-  }, []);
+  }, [coverPage]);
 
   const onAnchorClick = useCallback(
     (e) => {
@@ -155,66 +215,6 @@ const PageTransition = ({ children }) => {
       }
     };
   }, [router, pathname, onAnchorClick, revealPage]);
-
-  const coverPage = (url) => {
-    if (overlayRef.current) {
-      overlayRef.current.style.pointerEvents = "auto";
-    }
-    if (logoOverlayRef.current) {
-      logoOverlayRef.current.style.pointerEvents = "auto";
-    }
-
-    const tl = gsap.timeline({
-      onComplete: () => router.push(url),
-    });
-
-    tl.to(blocksRef.current, {
-      scaleX: 1,
-      duration: 0.4,
-      stagger: 0.02,
-      ease: "power2.out",
-      transformOrigin: "left",
-    })
-
-      .set(logoOverlayRef.current, { opacity: 1 }, "-=0.2");
-
-    // Safely animate logo path
-    const logoPath = logoRef.current?.querySelector("path");
-    if (logoPath && pathLengthRef.current > 0) {
-      tl.set(
-        logoPath,
-        {
-          strokeDashoffset: pathLengthRef.current,
-          fill: "transparent",
-        },
-        "-=0.25"
-      )
-        .to(
-          logoPath,
-          {
-            strokeDashoffset: 0,
-            duration: 2,
-            ease: "power2.inOut",
-          },
-          "-=0.5"
-        )
-        .to(
-          logoPath,
-          {
-            fill: "#e3e4d8",
-            duration: 1,
-            ease: "power2.out",
-          },
-          "-=0.5"
-        );
-    }
-
-    tl.to(logoOverlayRef.current, {
-      opacity: 0,
-      duration: 0.25,
-      ease: "power2.out",
-    });
-  };
 
   return (
     <>

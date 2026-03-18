@@ -5,8 +5,11 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
 import Copy from "./Copy";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations("hero");
+  const locale = useLocale();
   const heroRef = useRef(null);
   const carouselRef = useRef(null);
   const trackRef = useRef(null);
@@ -170,14 +173,14 @@ export default function Hero() {
         <div className="hero-text">
           <Copy delay={0.5} animateOnScroll={false}>
             <h1 className="hero-title text-[20px] md:text-[30px]">
-             დატკბლით ხელოვნების <br /> <span className="">ნიმუშებით</span>
+              {t("title")} <br /> <span className="">{t("titleAccent")}</span>
             </h1>
           </Copy>
           
           
-          <Link href="/shop">
+          <Link href={`/${locale}/shop`}>
             <button ref={buttonRef} className="hero-button md:text-[20px] text-[18px] z-10">
-             ჩვენი კოლექცია 
+              {t("cta")}
             </button>
           </Link>
           
@@ -202,25 +205,25 @@ export default function Hero() {
             className="carousel-item"
             onClick={(e) => handleImageSelect("/img_01.jpg", e)}
           >
-            <img src="/img_01.jpg" alt="Artwork 1" />
+            <img src="/img_01.jpg" alt={t("carouselAlt", {number: 1})} />
           </div>
           <div 
             className="carousel-item"
             onClick={(e) => handleImageSelect("/img_02.jpg", e)}
           >
-            <img src="/img_02.jpg" alt="Artwork 2" />
+            <img src="/img_02.jpg" alt={t("carouselAlt", {number: 2})} />
           </div>
           <div 
             className="carousel-item"
             onClick={(e) => handleImageSelect("/img_03.jpg", e)}
           >
-            <img src="/img_03.jpg" alt="Artwork 3" />
+            <img src="/img_03.jpg" alt={t("carouselAlt", {number: 3})} />
           </div>
           <div 
             className="carousel-item"
             onClick={(e) => handleImageSelect("/img_04.jpg", e)}
           >
-            <img src="/img_04.jpg" alt="Artwork 4" />
+            <img src="/img_04.jpg" alt={t("carouselAlt", {number: 4})} />
           </div>
           
         </div>

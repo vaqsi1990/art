@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "brand": "Art",
+    "home": "მთავარი",
+    "about": "ჩემს შესახებ",
+    "contact": "კონტაქტი",
+    "gallery": "გალერეა",
+    "language": "ენა"
+  },
+  "hero": {
+    "title": "დატკბით ხელოვნების",
+    "titleAccent": "ნიმუშებით",
+    "cta": "ჩვენი კოლექცია",
+    "carouselAlt": "ნამუშევარი {number}"
+  },
+  "featured": {
+    "title": "რჩეული ნამუშევრები",
+    "cta": "ჩვენი კოლექცია"
+  },
+  "categories": {
+    "title": "დაათვალიერე კოლექციები",
+    "all": "ყველა კოლექცია",
+    "featured": "რჩეული"
+  },
+  "popular": {
+    "title": "პოპულარული კოლექციები"
+  },
+  "shop": {
+    "title": "გალერეა",
+    "loading": "იტვირთება...",
+    "noResults": "თქვენს კრიტერიუმებს შესაბამისი ნამუშევარი ვერ მოიძებნა.",
+    "paginationPrev": "← წინა",
+    "paginationNext": "შემდეგი →",
+    "ariaPrevPage": "წინა გვერდი",
+    "ariaNextPage": "შემდეგი გვერდი",
+    "ariaGoToPage": "გადადი გვერდზე {page}"
+  },
+  "filter": {
+    "searchPlaceholder": "მოძებნე ნამუშევრები...",
+    "filters": "ფილტრები",
+    "sortDefault": "დალაგება: ნაგულისხმევი",
+    "sortTitleAsc": "სათაური: ა-ჰ",
+    "sortTitleDesc": "სათაური: ჰ-ა",
+    "sortYearDesc": "წელი: ახლებიდან",
+    "medium": "მასალა",
+    "allMediums": "ყველა",
+    "reset": "ფილტრების გასუფთავება"
+  },
+  "cart": {
+    "title": "კალათა",
+    "loading": "იტვირთება...",
+    "empty": "კალათა ცარიელია.",
+    "continueShopping": "გაგრძელე ნახვა",
+    "continueShoppingArrow": "გაგრძელე ნახვა →",
+    "orderSummary": "შეკვეთის მიმოხილვა",
+    "itemsInCart": "ნივთები კალათაში:",
+    "shipping": "მიტანა:",
+    "free": "უფასო",
+    "checkout": "გადახდაზე გადასვლა",
+    "processing": "მუშავდება...",
+    "thankYou": "გმადლობთ შენაძენისთვის! ეს არის დემო-გადახდა.",
+    "checkoutFailed": "გადახდა ვერ დასრულდა. სცადეთ თავიდან.",
+    "decreaseQty": "რაოდენობის შემცირება",
+    "increaseQty": "რაოდენობის გაზრდა",
+    "removeItem": "ნივთის წაშლა"
+  },
+  "product": {
+    "backToGallery": "← უკან გალერეაში",
+    "notFoundTitle": "ნამუშევარი ვერ მოიძებნა",
+    "notFoundBody": "თქვენი მოთხოვნილი ნამუშევარი არ არსებობს.",
+    "returnToGallery": "გალერეაში დაბრუნება",
+    "artist": "ავტორი:",
+    "year": "წელი:",
+    "medium": "მასალა:",
+    "dimensions": "ზომები:",
+    "addToCart": "კალათაში დამატება",
+    "addedToCart": "დამატებულია!"
+  },
+  "footer": {
+    "quickLinks": "ბმულები",
+    "history": "ისტორია",
+    "artist": "ავტორი",
+    "search": "ძიება",
+    "helpCenter": "დახმარება"
+  }
+}
+

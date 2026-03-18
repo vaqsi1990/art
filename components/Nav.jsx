@@ -2,8 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
 
 const Nav = () => {
+  const t = useTranslations("nav");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
   const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -82,6 +88,23 @@ const Nav = () => {
     setIsMenuOpen(false);
   };
 
+  const switchLocale = (nextLocale) => {
+    if (!pathname) return;
+    const segments = pathname.split("/").filter(Boolean);
+    if (segments.length === 0) {
+      router.push(`/${nextLocale}`);
+      return;
+    }
+
+    if (segments[0] === "en" || segments[0] === "ka") {
+      segments[0] = nextLocale;
+      router.push("/" + segments.join("/"));
+      return;
+    }
+
+    router.push(`/${nextLocale}${pathname.startsWith("/") ? pathname : `/${pathname}`}`);
+  };
+
   return (
     <>
       <nav
@@ -93,14 +116,41 @@ const Nav = () => {
       >
         <div className="width flex justify-between items-center">
         <div className="nav-logo">
-          <Link href="/">Art</Link>
+          <Link href={`/${locale}`}>{t("brand")}</Link>
         </div>
 
         <div className="nav-links">
-          <Link className="text-[20px]" href="/">მთავარი</Link>
-          <Link className="text-[20px]" href="/about">ჩემს შესახებ</Link>
-          <Link className="text-[20px]" href="/contact">კონტაქტი</Link>
-          <Link className="text-[20px]" href="/shop">გალერეა</Link>
+          <Link className="text-[20px]" href={`/${locale}`}>{t("home")}</Link>
+          <Link className="text-[20px]" href={`/${locale}/about`}>{t("about")}</Link>
+          <Link className="text-[20px]" href={`/${locale}/contact`}>{t("contact")}</Link>
+          <Link className="text-[20px]" href={`/${locale}/shop`}>{t("gallery")}</Link>
+
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => switchLocale("ka")}
+              className={`text-[14px] ${isScrolledPastHero ? "text-black" : "text-white"}`}
+              aria-label="Switch to Georgian"
+              style={{ opacity: locale === "ka" ? 1 : 0.6 }}
+            >
+              KA
+            </button>
+            <span
+              className={`${isScrolledPastHero ? "text-black" : "text-white"}`}
+              style={{ opacity: 0.7 }}
+            >
+              /
+            </span>
+            <button
+              type="button"
+              onClick={() => switchLocale("en")}
+              className={`text-[14px] ${isScrolledPastHero ? "text-black" : "text-white"}`}
+              aria-label="Switch to English"
+              style={{ opacity: locale === "en" ? 1 : 0.6 }}
+            >
+              EN
+            </button>
+          </div>
          
         </div>
 
@@ -130,10 +180,35 @@ const Nav = () => {
           <span></span>
         </button>
         <div className="mobile-menu-links">
-          <Link href="/" onClick={closeMenu}>მთავარი</Link>
-          <Link href="/about" onClick={closeMenu}>ჩემს შესახებ</Link>
-          <Link href="/contact" onClick={closeMenu}>კონტაქტი</Link>
-          <Link href="/shop" onClick={closeMenu}>გალერეა</Link>
+          <Link href={`/${locale}`} onClick={closeMenu}>{t("home")}</Link>
+          <Link href={`/${locale}/about`} onClick={closeMenu}>{t("about")}</Link>
+          <Link href={`/${locale}/contact`} onClick={closeMenu}>{t("contact")}</Link>
+          <Link href={`/${locale}/shop`} onClick={closeMenu}>{t("gallery")}</Link>
+
+          <div className="flex gap-3">
+            <button
+              type="button"
+              onClick={() => {
+                switchLocale("ka");
+                closeMenu();
+              }}
+              className="text-white"
+              style={{ opacity: locale === "ka" ? 1 : 0.75 }}
+            >
+              KA
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                switchLocale("en");
+                closeMenu();
+              }}
+              className="text-white"
+              style={{ opacity: locale === "en" ? 1 : 0.75 }}
+            >
+              EN
+            </button>
+          </div>
     
         </div>
       </div>

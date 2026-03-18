@@ -3,8 +3,11 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { artworks } from '@/data/artworks'
 import { useRouter } from 'next/navigation'
+import { useLocale, useTranslations } from 'next-intl'
 
 const Featured = () => {
+  const t = useTranslations('featured')
+  const locale = useLocale()
   const router = useRouter()
   const cardRef = useRef<HTMLDivElement>(null)
   const cardImageRef = useRef<HTMLDivElement>(null)
@@ -25,12 +28,12 @@ const Featured = () => {
     if ((e.target as HTMLElement).closest('button')) {
       return
     }
-    router.push(`/products/${featuredArtworks[activeIndex]?.id}`)
+    router.push(`/${locale}/products/${featuredArtworks[activeIndex]?.id}`)
   }
 
   const handleButtonClick = (e: React.MouseEvent) => {
     e.stopPropagation()
-    router.push('/shop')
+    router.push(`/${locale}/shop`)
   }
 
   useEffect(() => {
@@ -93,7 +96,7 @@ const Featured = () => {
   return (
     <div className="featured-section">
       <div className="featured-container">
-        <h2 className="featured-title mb-4 text-black md:text-[30px] text-[20px]">Featured Works</h2>
+        <h2 className="featured-title mb-4 text-black md:text-[30px] text-[20px]">{t('title')}</h2>
       
         
         <div className="featured-card-wrapper">
@@ -118,7 +121,7 @@ const Featured = () => {
                 onClick={handleButtonClick}
                 className="hero-button md:text-[20px] text-[18px] z-10"
               >
-                ჩვენი კოლექცია 
+                {t('cta')}
               </button>
             </div>
           </div>

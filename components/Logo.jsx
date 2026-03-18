@@ -8,4 +8,6 @@ const Logo = forwardRef((props, ref) => {
   );
 });
 
+Logo.displayName = "Logo";
+
 export default Logo;

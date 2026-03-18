@@ -1,15 +1,18 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from 'react'
+import React, { useState, Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { artworks } from '@/data/artworks'
 import SearchFilter from '@/components/SearchFilter'
+import { useLocale, useTranslations } from 'next-intl'
 
 const ITEMS_PER_PAGE = 9
 
 function ShopContent() {
+  const t = useTranslations('shop')
   const searchParams = useSearchParams()
+  const locale = useLocale()
   const [currentPage, setCurrentPage] = useState(1)
   const [filteredArtworks, setFilteredArtworks] = useState(artworks)
   const initialMedium = searchParams.get('medium') || undefined
@@ -35,7 +38,7 @@ function ShopContent() {
       
       <div className="shop-section">
         <div className="shop-container">
-          <h1 className="shop-title text-white">Shop</h1>
+          <h1 className="shop-title text-white">{t('title')}</h1>
           
           <SearchFilter 
             artworks={artworks} 
@@ -45,16 +48,14 @@ function ShopContent() {
 
           {filteredArtworks.length === 0 ? (
             <div className="no-results text-white">
-              <p>No artworks found matching your criteria.</p>
+              <p>{t('noResults')}</p>
             </div>
           ) : (
             <>
-            
-              
               <div className="shop-grid">
                 {currentArtworks.map((artwork) => (
                   <div key={artwork.id} className="shop-item">
-                    <Link href={`/products/${artwork.id}`} className="shop-item-link">
+                    <Link href={`/${locale}/products/${artwork.id}`} className="shop-item-link">
                       <div className="frame-outer">
                         <div className="frame-inner">
                           <img
@@ -68,7 +69,6 @@ function ShopContent() {
 
                       <div className="art-info text-white">
                         <h3 className="text-white">{artwork.title}</h3>
-                     
                       </div>
                     </Link>
                   </div>
@@ -81,9 +81,9 @@ function ShopContent() {
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage === 1}
                     className="pagination-button text-white"
-                    aria-label="Previous page"
+                    aria-label={t('ariaPrevPage')}
                   >
-                    ← Previous
+                    {t('paginationPrev')}
                   </button>
 
                   <div className="pagination-numbers">
@@ -92,7 +92,7 @@ function ShopContent() {
                         key={page}
                         onClick={() => handlePageChange(page)}
                         className={`pagination-number text-white ${currentPage === page ? 'active' : ''}`}
-                        aria-label={`Go to page ${page}`}
+                        aria-label={t('ariaGoToPage', {page})}
                       >
                         {page}
                       </button>
@@ -103,9 +103,9 @@ function ShopContent() {
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
                     className="pagination-button text-white"
-                    aria-label="Next page"
+                    aria-label={t('ariaNextPage')}
                   >
-                    Next →
+                    {t('paginationNext')}
                   </button>
                 </div>
               )}
@@ -118,12 +118,14 @@ function ShopContent() {
 }
 
 export default function ShopPage() {
+  const t = useTranslations('shop')
+
   return (
     <Suspense fallback={
       <div className="shop-section">
         <div className="shop-container">
-          <h1 className="shop-title text-white">Shop</h1>
-          <div className="text-white">Loading...</div>
+          <h1 className="shop-title text-white">{t('title')}</h1>
+          <div className="text-white">{t('loading')}</div>
         </div>
       </div>
     }>
@@ -131,3 +133,4 @@ export default function ShopPage() {
     </Suspense>
   )
 }
+

@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 export interface CartItem {
   id: string;
   quantity: number;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const CART_COOKIE_NAME = 'art-cart';
@@ -45,7 +45,7 @@ export async function DELETE(
       cart: updatedCart,
       totalItems: updatedCart.reduce((sum, item) => sum + item.quantity, 0),
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to remove item from cart' }, { status: 500 });
   }
 }
@@ -56,8 +56,8 @@ export async function PUT(
 ) {
   try {
     const { id } = await params;
-    const body = await request.json();
-    const { quantity } = body;
+    const body = (await request.json()) as { quantity?: unknown };
+    const quantity = body.quantity;
 
     if (typeof quantity !== 'number' || quantity < 0) {
       return NextResponse.json({ error: 'Invalid quantity' }, { status: 400 });
@@ -91,7 +91,7 @@ export async function PUT(
       cart: updatedCart,
       totalItems: updatedCart.reduce((sum, item) => sum + item.quantity, 0),
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to update cart item' }, { status: 500 });
   }
 }
